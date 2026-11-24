@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gerador de Vídeos com IA</title>
+  <meta name="description" content="Crie vídeos de até 1 minuto a partir de um tema, com roteiro, imagens e narração geradas por IA.">
+  <style>
+    :root { --bg:#0d1117; --card:#161b22; --borda:#30363d; --texto:#e6edf3; --suave:#8b949e; --destaque:#2f81f7; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+           background:var(--bg); color:var(--texto); line-height:1.6; }
+    main { max-width: 860px; margin: 0 auto; padding: 56px 20px 80px; }
+    h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0 0 12px; }
+    h2 { margin: 48px 0 16px; font-size: 1.4rem; }
+    p.lead { font-size: 1.15rem; color: var(--suave); margin: 0 0 28px; }
+    .botoes { display:flex; gap:12px; flex-wrap:wrap; }
+    a.btn { display:inline-block; padding: 12px 20px; border-radius: 8px; text-decoration:none;
+            font-weight:600; border:1px solid var(--borda); color:var(--texto); background:var(--card); }
+    a.btn.primario { background:var(--destaque); border-color:var(--destaque); color:#fff; }
+    .passos { display:grid; gap:14px; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+    .passo { background:var(--card); border:1px solid var(--borda); border-radius:10px; padding:18px; }
+    .passo span { color:var(--destaque); font-weight:700; }
+    .passo h3 { margin:6px 0 4px; font-size:1.05rem; }
+    .passo p { margin:0; color:var(--suave); font-size:.95rem; }
+    pre { background:var(--card); border:1px solid var(--borda); border-radius:10px;
+          padding:16px; overflow-x:auto; font-size:.9rem; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    footer { margin-top:56px; color:var(--suave); font-size:.9rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Gerador de Vídeos com IA</h1>
+    <p class="lead">Crie vídeos de até 1 minuto a partir de um tema: roteiro, imagens, narração e legendas gerados por IA.</p>
+
+    <div class="botoes">
+      <a class="btn primario" href="https://github.com/equipetivelox-jpg/geraia">Ver código no GitHub</a>
+      <a class="btn" href="https://github.com/equipetivelox-jpg/geraia/blob/main/README.md">Ler a documentação</a>
+    </div>
+
+    <h2>Como funciona</h2>
+    <div class="passos">
+      <div class="passo"><span>1</span><h3>Roteiro</h3><p>O Claude divide o tema em cenas com narração e descrição visual.</p></div>
+      <div class="passo"><span>2</span><h3>Imagens</h3><p>O Stable Diffusion gera uma imagem para cada cena.</p></div>
+      <div class="passo"><span>3</span><h3>Narração</h3><p>O edge-tts cria a voz em português, sem custo.</p></div>
+      <div class="passo"><span>4</span><h3>Montagem</h3><p>O moviepy junta tudo com zoom suave e legendas.</p></div>
+    </div>
+
+    <h2>Como usar</h2>
+<pre><code>git clone https://github.com/equipetivelox-jpg/geraia.git
+cd geraia
+pip install -r requirements.txt
+
+export ANTHROPIC_API_KEY="sua-chave"
+python gerador_video_ia.py "Curiosidades sobre o espaço" --saida video.mp4</code></pre>
+
+    <footer>
+      O gerador roda no seu computador (precisa de Python, ffmpeg e uma chave da API da Anthropic).
+      Esta página é apenas a apresentação do projeto.
+    </footer>
+  </main>
+</body>
+</html>
